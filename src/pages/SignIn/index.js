@@ -27,8 +27,7 @@ const navigation = useNavigation();
                     <TouchableOpacity style={styles.buttonAccount} onPress={()=> navigation.navigate('SignUp')} >
                         <Text style={styles.textAccount}> Criar uma conta!</Text>
                     </TouchableOpacity>
-
-
+                    
                 </View>
             </KeyboardAvoidingView>
         </View>
