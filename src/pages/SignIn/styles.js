@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#3b3dbf',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 15
+        marginBottom: 15,
+        
     },
     textButton: {
         fontSize: 20,

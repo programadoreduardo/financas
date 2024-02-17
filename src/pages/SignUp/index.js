@@ -8,6 +8,10 @@ export default function SignUp() {
 
     const { user } = useContext(AuthContext)
 
+    function handleSignUp(){
+        console.log(user.nome)
+    }
+
     return (
         <View style={styles.body} >
             <KeyboardAvoidingView style={styles.teclado}
@@ -25,7 +29,7 @@ export default function SignUp() {
                     <TextInput style={styles.inputEmail}
                         placeholder='Senha' />
 
-                    <TouchableOpacity style={styles.button} activeOpacity={0.8} >
+                    <TouchableOpacity style={styles.button} activeOpacity={0.8} onPress={handleSignUp}>
                         <Text style={styles.textButton}> Cadastrar</Text>
                     </TouchableOpacity>
 
