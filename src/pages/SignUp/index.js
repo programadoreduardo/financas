@@ -1,4 +1,4 @@
-import { KeyboardAvoidingView, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { KeyboardAvoidingView, Text, View, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Platform } from 'react-native';
 import styles from '../SignIn/styles';
 import { useContext, useState } from 'react';
@@ -6,12 +6,13 @@ import { AuthContext } from '../../contexts/auth';
 
 export default function SignUp() {
 
-    const { signUp } = useContext(AuthContext)
+    const { signUp, loadingAuth } = useContext(AuthContext)
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     function handleSignUp() {
+        if (nome === '' || email === '' || password === '') {alert ('É necessario preencher todos os campos')} return;
         signUp(email, password, nome);
     }
 
@@ -43,14 +44,16 @@ export default function SignUp() {
                     />
 
                     <TouchableOpacity style={styles.button} activeOpacity={0.8} onPress={handleSignUp}>
-                        <Text style={styles.textButton}> Cadastrar</Text>
+
+                        {loadingAuth ? (<ActivityIndicator size={20} color='#fff' />) : (<Text style={styles.textButton}> Cadastrar </Text>)}
+
                     </TouchableOpacity>
 
 
                 </View>
 
-            </KeyboardAvoidingView>
-        </View>
+            </KeyboardAvoidingView >
+        </View >
     );
 }
 
