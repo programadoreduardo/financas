@@ -1,18 +1,16 @@
 import { useContext } from "react";
 import { Button, Text, View } from "react-native";
 import { AuthContext } from "../../contexts/auth";
+import { styles } from "./styles";
+import Header from "../../components/Header";
 
-export default function Home(){
-const {singOut, user } = useContext(AuthContext)
 
-    return(
-        <View>
-            <Text> Tela Home</Text>
-            <Text> Nome: {user.name}</Text>
+export default function Home() {
+    const { singOut, user } = useContext(AuthContext)
 
-            <Button
-            title="Sair da conta"
-            onPress={()=>singOut()}/>
+    return (
+        <View style={styles.container}>
+            <Header title="Minhas movimentações" />
         </View>
     )
 }
