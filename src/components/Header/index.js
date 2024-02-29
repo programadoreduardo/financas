@@ -1,18 +1,21 @@
-import { Button, SafeAreaView, Text, TouchableOpacity } from "react-native";
+import { SafeAreaView, Text, TouchableOpacity } from "react-native";
 import styles from "./styles";
-import  Icon  from "react-native-vector-icons/Feather";
+import Icon from "react-native-vector-icons/Feather";
+import { useNavigation } from "@react-navigation/native";
 
 
 
 export default function Heaeder({ title }) {
+    const navigation = useNavigation()
     return (
         <SafeAreaView style={styles.container}>
-           <TouchableOpacity>
-            <Icon name="menu" size={35} color='#121212'/>
-           </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonMenu} onPress={()=> navigation.openDrawer()}>
+                <Icon name="menu" size={35} color='#121212' />
+            </TouchableOpacity>
+
             {title && (
-                <Text>{title}</Text>
+                <Text style={styles.title}>{title}</Text>
             )}
         </SafeAreaView>
     )
-} 
+}
