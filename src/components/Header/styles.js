@@ -5,7 +5,8 @@ import { StyleSheet } from "react-native";
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        marginTop: '30px',
+        marginTop: 30,
+        marginBottom:15,
         marginLeft: 15,
         width: '100%',
         maxHeight: 60
