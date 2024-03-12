@@ -9,7 +9,8 @@ justify-content: center;
 align-items: flex-start;
 width: 300px;
 height: 250px;
-padding-left: 14px; 
+padding-left: 14px;
+padding-bottom: 80px;
 `;
 
 export const Label = styled.Text`

@@ -14,7 +14,9 @@ export const styles = StyleSheet.create({
         borderTopRightRadius: 15,
         paddingLeft:14,
         paddingRight:14,
-        alignItems: 'baseline'
+        alignItems: 'baseline',
+        marginTop: 24,
+        paddingTop:14
     },
     textButton: {
         marginLeft:5,

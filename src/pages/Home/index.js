@@ -15,6 +15,7 @@ import HistoricoList from "../../components/HistoricoList";
 export default function Home() {
     const isFocused = useIsFocused()
     const [listBalance, setListBalance] = useState([])
+    const [movements, setMovements] = useState([])
     const [dateMovements, setDateMovements] = useState(new Date())
 
     useEffect(() => {
@@ -23,12 +24,19 @@ export default function Home() {
         async function getMovements() {
             let dateFormated = format(dateMovements, 'dd/MM/yyyy')
 
+            const receives = await api.get('/receives', {
+                params: {
+                    data: dateFormated
+                }
+            })
+
             const balance = await api.get('/balance', {
                 params: {
                     date: dateFormated
                 }
             })
             if (isActive) {
+                setMovements(receives.data)
                 setListBalance(balance.data);
             }
         }
@@ -57,12 +65,12 @@ export default function Home() {
             </View>
 
             <FlatList
-                data={[]}
+                data={movements}
                 keyExtractor={item => item.id}
-                renderItem={({ item }) => <HistoricoList />}
-                showsHorizontalScrollIndicator={false}
+                renderItem={({ item }) => <HistoricoList data={item} />}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{paddingBottom:20}}
             />
-
 
         </View>
     )
