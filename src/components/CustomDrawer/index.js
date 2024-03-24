@@ -28,11 +28,11 @@ export default function CustonDrawer(props) {
 
             <DrawerItemList {...props} />
 
-            <DrawerItem
+           {/*  <DrawerItem
                 {...props}
                 label={"Sair do app"}
                 onPress={() => singOut()}
-            />
+            /> */}
         </DrawerContentScrollView>
     );
 }
