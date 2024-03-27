@@ -1,7 +1,11 @@
 import { Text, TouchableWithoutFeedback, View, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import { useState } from 'react';
-import { Calendar } from 'react-native-calendars';
+import { Calendar, LocaleConfig } from 'react-native-calendars';
+import { ptBR } from './LocaleCalendar';
+
+LocaleConfig.locales['pt-br'] = ptBR
+LocaleConfig.defaultLocale = 'pt-br'
 
 export default function CalendarModal({ setVisible, handleFilter }) {
     const [dateNow, setDateNow] = useState(new Date())
